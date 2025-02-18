@@ -30,6 +30,7 @@ public class Alumno extends Usuario {
     }
 
     public void mostrarNotas() {
+        System.out.println("<<< Listado de Notas >>>");
         System.out.println("Notas del alumno " + nombre + ":");
         for (Map.Entry<Asignatura, Integer> entry : notas.entrySet()) {
             System.out.println(entry.getKey().getNombre() + ": " + entry.getValue());
