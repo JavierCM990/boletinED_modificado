@@ -35,4 +35,29 @@ public class Asignatura {
             if (a.getNombre().equals(alumno.nombre)) alumnos.remove(a);
         }
     }
+
+    public void calcularPromedioNotas() {
+        if (alumnos.isEmpty()) {
+            System.out.println("Alumno no encontrado en " + nombre);
+            return;
+        }
+
+        int sumaNotas = 0;
+        int alumnosConNotas = 0;
+
+        for (Alumno alumno : alumnos) {
+            int nota = alumno.obtenerNota(this);
+            if (nota >= 0) {
+                sumaNotas += nota;
+                alumnosConNotas++;
+            }
+        }
+
+        if (alumnosConNotas > 0) {
+            double promedio = (double) sumaNotas / alumnosConNotas;
+            System.out.println("Promedio de notas con alumno " + nombre + ": " + promedio);
+        } else {
+            System.out.println("Alumno no encontrado en " + nombre);
+        }
+    }
 }
